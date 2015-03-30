@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>Ninja Warrior</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css">
+		img{
+			width:40px;
+			height:40px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div id="character" style="position:absolute; top:0px; left:0px;"><img id='ninja' src="img/down1.png"></div>
+
+	<script>
+
+
+	function gameLoop()
+	{
+		$('#character').css("left", x+"px"); // every 150 milliseconds replace teh css property left with the new x coordinate
+		$('#character').css("top",y+"px");
+		$('#ninja').attr("src",pic);
+
+	}
+
+	setInterval(gameLoop, 100);
+
+	var x=0, y=0, pic='img/down1.png';
+
+	document.onkeydown = function(e)
+	{
+		if(e.keyCode == 37)
+		{
+			x = x-10;
+			pic ='img/left1.png';  
+
+		}
+		else if(e.keyCode == 39)
+		{
+			x = x+10;
+			pic = 'img/right1.png';
+		}
+		else if(e.keyCode ==38)
+		{
+			y-=10;
+			pic = 'img/top1.png';
+		
+				
+		}
+		else if (e.keyCode ==40)
+		{
+			y+=10;
+			pic = 'img/down1.png';
+
+				
+		}
+
+		// console.log(e.keyCode, x);
+		// console.log(e.keyCode, y);
+		console.log(e.keyCode);
+
+	}
+
+	console.log(document);
+	</script>
+
+</body>
+</html>
